@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rick_and_morty_app/core/constants/extension/color_extension.dart';
-import 'package:flutter_rick_and_morty_app/core/constants/extension/context_extension.dart';
+import '../../../core/constants/extension/color_extension.dart';
+import '../../../core/constants/extension/context_extension.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({Key? key, required this.title, required this.subTitle})
@@ -11,11 +11,15 @@ class CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: _title(context),
-      subtitle: Padding(
-        padding: context.paddingX2Top,
-        child: _subTitle(context),
+    return Card(
+      elevation: context.hw10,
+      child: ListTile(
+        title: _title(context),
+        subtitle: Padding(
+          padding: context.paddingX2Top,
+          child: _subTitle(context),
+        ),
+        trailing: Icon(Icons.chevron_right_outlined, size: context.hw25),
       ),
     );
   }

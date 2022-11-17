@@ -13,7 +13,7 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   final String title;
-  final Icon? icon;
+  final IconButton? icon;
   final void Function()? onPressed;
 
   @override
