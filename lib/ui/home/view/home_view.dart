@@ -10,10 +10,10 @@ class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
   @override
-  State<HomeView> createState() => _MyHomePageState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _MyHomePageState extends HomeViewModel {
+class _HomeViewState extends HomeViewModel {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,26 +33,26 @@ class _MyHomePageState extends HomeViewModel {
 
   GridView _characterList(List<Character> dataResults, BuildContext context) {
     return GridView.builder(
-            itemBuilder: (_, index) {
-              final character = dataResults[index];
-              return CustomCard(
-                title: character.name,
-                lastLocation: character.location.name,
-                imageUrl: character.image,
-                status: character.status,
-                onTap: () {
-                  _navigationDetailPage(context, character);
-                },
-              );
-            },
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 4.0,
-              mainAxisSpacing: 4.0,
-              childAspectRatio: 6.0 / 9.0,
-            ),
-            itemCount: dataResults.length,
-          );
+      itemBuilder: (_, index) {
+        final character = dataResults[index];
+        return CustomCard(
+          title: character.name,
+          lastLocation: character.location.name,
+          imageUrl: character.image,
+          status: character.status,
+          onTap: () {
+            _navigationDetailPage(context, character);
+          },
+        );
+      },
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 4.0,
+        mainAxisSpacing: 4.0,
+        childAspectRatio: 6.0 / 9.0,
+      ),
+      itemCount: dataResults.length,
+    );
   }
 
   Future<dynamic> _navigationDetailPage(
