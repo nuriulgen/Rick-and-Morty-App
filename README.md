@@ -1,7 +1,7 @@
 # Rick and Morty Character App
 This is an app build in Flutter that loads a list of characters (from the serie Rick and Morty) and his info, and display it.
 
-Api that provide the information: https://rickandmortyapi.com/documentation.
+Api that provide the information: https://rickandmortyapi.com/documentation
 
 This app requires internet connection.
 
