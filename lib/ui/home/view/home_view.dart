@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rick_and_morty_app/product/util/widget/custom_app_bar.dart';
-import 'package:flutter_rick_and_morty_app/ui/home/viewmodel/home_view_model.dart';
+import '../../../product/util/widget/custom_app_bar.dart';
+import '../viewmodel/home_viewmodel.dart';
 
 import '../../../product/util/widget/custom_card.dart';
 import '../../../core/init/network/model/characters_model.dart';
@@ -20,7 +20,7 @@ class _HomeViewState extends HomeViewModel {
       appBar: _appBarTitle(),
       body: FutureBuilder(
         future: characters,
-        builder: (_, AsyncSnapshot<List<Character>> snapshot) {
+        builder: (_, AsyncSnapshot<List<CharacterModel>> snapshot) {
           if (snapshot.hasData) {
             final dataResults = snapshot.data!;
             return _characterList(dataResults, context);
@@ -31,7 +31,8 @@ class _HomeViewState extends HomeViewModel {
     );
   }
 
-  GridView _characterList(List<Character> dataResults, BuildContext context) {
+  GridView _characterList(
+      List<CharacterModel> dataResults, BuildContext context) {
     return GridView.builder(
       itemBuilder: (_, index) {
         final character = dataResults[index];
@@ -56,7 +57,7 @@ class _HomeViewState extends HomeViewModel {
   }
 
   Future<dynamic> _navigationDetailPage(
-      BuildContext context, Character character) {
+      BuildContext context, CharacterModel character) {
     return Navigator.push(
       context,
       MaterialPageRoute(

@@ -6,6 +6,4 @@ extension ColorExtension on BuildContext {
   Color get green => Colors.green;
 
   Color get heatherGrey => const Color(0xFF9D9EA3);
-
-  Color get mediumBlack => const Color.fromARGB(144, 0, 0, 0);
 }

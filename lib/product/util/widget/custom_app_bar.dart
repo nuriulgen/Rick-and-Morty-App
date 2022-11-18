@@ -39,11 +39,12 @@ class _CustomAppBarState extends State<CustomAppBar>
   }
 
   IconButton _changeThemeButton(BuildContext context) {
+    // It changes the theme when the button is pressed.
     return IconButton(
       icon: const Icon(Icons.dark_mode),
       onPressed: () {
         isLight = !isLight;
-        Future.microtask(() => context.read<ThemeNotifier>().changeTheme());
+        context.read<ThemeNotifier>().changeTheme();
       },
     );
   }
@@ -60,6 +61,7 @@ class _CustomAppBarState extends State<CustomAppBar>
 
   IconButton _backButton() {
     return IconButton(
+      // This method was created to return to the previous page.
         onPressed: widget.onPressed,
         icon: widget.icon ?? const SizedBox.shrink());
   }

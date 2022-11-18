@@ -7,7 +7,7 @@ class ThemeNotifier extends ChangeNotifier {
 
   void changeTheme() {
     isLightTheme = !isLightTheme;
-    notifyListeners();
+    notifyListeners(); // used to listen for theme change.
   }
 
   ThemeData get currentTheme => isLightTheme

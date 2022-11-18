@@ -42,7 +42,7 @@ extension ContextExtension on BuildContext {
   double get highValue => height * 0.1;
 
   // HEIGHT- WIDTH
-  double get hw5=> 10;
+  double get hw5 => 10;
   double get hw10 => 10;
   double get hw20 => 20;
   double get hw25 => 25;
@@ -51,7 +51,4 @@ extension ContextExtension on BuildContext {
   double get hw100 => 100;
   double get hw150 => 150;
   double get hw200 => 200;
-
-  //Count
-  int get crossAxisCountValue => 2;
 }

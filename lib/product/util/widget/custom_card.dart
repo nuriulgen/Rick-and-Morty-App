@@ -1,30 +1,40 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/constants/extension/color_extension.dart';
 import '../../../core/constants/extension/context_extension.dart';
 import '../../../core/constants/extension/string_extension.dart';
-
 import '../../../core/constants/image/custom_network_image.dart';
 
-class CustomBigCard extends StatelessWidget {
-  const CustomBigCard(
+class CustomCard extends StatelessWidget {
+  const CustomCard(
       {Key? key,
       required this.imageUrl,
       required this.title,
       required this.lastLocation,
-      required this.status})
+      required this.status,
+      this.onTap})
       : super(key: key);
 
   final String imageUrl;
   final String title;
   final String lastLocation;
   final String status;
+  final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     AppStringConstants? appStringConstants = AppStringConstants.instance;
     return Padding(
-      padding: context.padding2xBottom,
-      child: Card(
+      padding: context.paddingXBottom,
+      child: InkWell(
+        onTap: onTap,
+        child: _customCard(context, appStringConstants),
+      ),
+    );
+  }
+
+  Card _customCard(BuildContext context, AppStringConstants? appStringConstants) {
+    return Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -39,7 +49,7 @@ class CustomBigCard extends StatelessWidget {
               child: _charactersTitle(context),
             ),
             Padding(
-              padding: context.paddingXTop + context.paddingX2Left,
+              padding: context.paddingX2Top + context.paddingX2Left,
               child: _lastLocationTitle(appStringConstants, context),
             ),
             Padding(
@@ -48,8 +58,7 @@ class CustomBigCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 
   SizedBox _charactersImage(BuildContext context) {
@@ -65,19 +74,22 @@ class CustomBigCard extends StatelessWidget {
       lastLocation,
       style: Theme.of(context)
           .textTheme
-          .bodyMedium
+          .bodySmall
           ?.copyWith(color: context.black, fontWeight: FontWeight.w400),
     );
   }
 
-  Text _lastLocationTitle(
+  SizedBox _lastLocationTitle(
       AppStringConstants? appStringConstants, BuildContext context) {
-    return Text(
-      appStringConstants!.lastLocationText,
-      style: Theme.of(context)
-          .textTheme
-          .bodyMedium
-          ?.copyWith(color: context.black, fontWeight: FontWeight.w300),
+    return SizedBox(
+      width: context.hw150,
+      child: Text(
+        appStringConstants!.lastLocationText,
+        style: Theme.of(context)
+            .textTheme
+            .bodyMedium
+            ?.copyWith(color: context.black, fontWeight: FontWeight.w300),
+      ),
     );
   }
 

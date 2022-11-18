@@ -1,7 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter_rick_and_morty_app/ui/home/view/home_detail_view.dart';
+import 'package:flutter_rick_and_morty_app/ui/episode/view/episode_view.dart';
 
 import '../../ui/home/view/home_view.dart';
 
@@ -21,7 +21,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     });
   }
 
-  final _pages = [const HomeView(), const HomeDetailView()];
+  final _pages = [const HomeView(), const EpisodeView()];
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +49,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       ),
       BottomNavigationBarItem(
         icon: const Icon(Icons.search),
-        label: BottomNavItem.Characters.name,
+        label: BottomNavItem.Episode.name,
       ),
     ];
   }
 }
 
-enum BottomNavItem { Home, Characters }
+enum BottomNavItem { Home, Episode }

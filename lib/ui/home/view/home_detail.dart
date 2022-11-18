@@ -7,7 +7,7 @@ import '../../../product/util/widget/custom_app_bar.dart';
 import '../../../core/init/network/model/characters_model.dart';
 
 class HomeDetailView extends StatefulWidget {
-  final Character detailedCharacter;
+  final CharacterModel detailedCharacter;
   const HomeDetailView({Key? key, required this.detailedCharacter})
       : super(key: key);
 
@@ -58,7 +58,7 @@ class _HomeDetailViewState extends State<HomeDetailView> {
 
   Text _locationText(BuildContext context) {
     return Text(
-      'Location: ${widget.detailedCharacter.location.name} ',
+      '${_appStringConstants!.locationText} ${widget.detailedCharacter.location.name} ',
       style: Theme.of(context).textTheme.headline6?.copyWith(
           fontWeight: FontWeight.bold, color: const Color(0xFF01b4c6)),
     );
@@ -66,7 +66,7 @@ class _HomeDetailViewState extends State<HomeDetailView> {
 
   Text _originText(BuildContext context) {
     return Text(
-      'Origin: ${widget.detailedCharacter.origin.name}',
+      '${_appStringConstants!.originText} ${widget.detailedCharacter.origin.name}',
       style: Theme.of(context).textTheme.headline6?.copyWith(
           fontWeight: FontWeight.bold, color: const Color(0xFF01b4c6)),
     );
@@ -74,7 +74,7 @@ class _HomeDetailViewState extends State<HomeDetailView> {
 
   Text _genderText(BuildContext context) {
     return Text(
-      'Gender: ${widget.detailedCharacter.gender}',
+      '${_appStringConstants!.genderText} ${widget.detailedCharacter.gender}',
       style: Theme.of(context).textTheme.headline6?.copyWith(
           fontWeight: FontWeight.bold, color: const Color(0xFF01b4c6)),
     );
@@ -86,7 +86,7 @@ class _HomeDetailViewState extends State<HomeDetailView> {
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(context.hw20),
           ),
         ),
         child: Text(widget.detailedCharacter.status),

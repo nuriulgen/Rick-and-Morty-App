@@ -3,11 +3,16 @@ import '../../../core/constants/extension/color_extension.dart';
 import '../../../core/constants/extension/context_extension.dart';
 
 class CustomListTile extends StatelessWidget {
-  const CustomListTile({Key? key, required this.title, required this.subTitle})
+  const CustomListTile(
+      {Key? key,
+      required this.title,
+      required this.subTitle,
+      required this.airDate})
       : super(key: key);
 
   final String title;
   final String subTitle;
+  final String airDate;
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +24,19 @@ class CustomListTile extends StatelessWidget {
           padding: context.paddingX2Top,
           child: _subTitle(context),
         ),
-        trailing: Icon(Icons.chevron_right_outlined, size: context.hw25),
+        trailing: _trailing(context),
       ),
     );
+  }
+
+  Text _trailing(BuildContext context) {
+    return Text(
+        airDate,
+        style: Theme.of(context)
+            .textTheme
+            .bodyMedium
+            ?.copyWith(fontWeight: FontWeight.w400),
+      );
   }
 
   Text _subTitle(BuildContext context) {
@@ -39,8 +54,8 @@ class CustomListTile extends StatelessWidget {
       title,
       style: Theme.of(context)
           .textTheme
-          .headline5
-          ?.copyWith(fontWeight: FontWeight.w500),
+          .headline6
+          ?.copyWith(fontWeight: FontWeight.w400),
     );
   }
 }

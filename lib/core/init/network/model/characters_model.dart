@@ -1,5 +1,5 @@
-class Character {
-  Character({
+class CharacterModel {
+  CharacterModel({
     required this.id,
     required this.name,
     required this.status,
@@ -27,7 +27,7 @@ class Character {
   final String url;
   final DateTime created;
 
-  factory Character.fromJson(Map<String, dynamic> json) => Character(
+  factory CharacterModel.fromJson(Map<String, dynamic> json) => CharacterModel(
         id: json["id"],
         name: json["name"],
         status: json["status"],

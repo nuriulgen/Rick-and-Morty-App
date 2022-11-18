@@ -9,6 +9,7 @@ class EpisodeService extends EntitiesService {
   final String baseURL = dotenv.env['BASE_URL'] ?? 'BASE_URL not found';
   
   Future<List<Episode>> fetchEpisode() async {
+    // It was used to pull all the characters data from the api.
     List<Map<String, dynamic>> result =
         await super.fetchEntities('$baseURL${AppConstants.episodeEndpoint}');
 

@@ -8,6 +8,7 @@ class CharacterService extends EntitiesService {
   final String baseURL = dotenv.env['BASE_URL'] ?? 'BASE_URL not found';
 
   Future<List<CharacterModel>> fetchCharacters() async {
+    // It was used to pull all the characters data from the api.
     List<Map<String, dynamic>> results =
         await super.fetchEntities('$baseURL${AppConstants.characterEndpoint}');
 

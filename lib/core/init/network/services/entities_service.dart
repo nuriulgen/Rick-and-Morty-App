@@ -26,6 +26,7 @@ abstract class EntitiesService {
       }
       return allEntities;
     } on DioError catch (exception) {
+      // It was created to catch any errors that occur.
       if (exception.response != null) {
         if (exception.response!.statusCode == 404) {
           throw Exception(EndListException);
