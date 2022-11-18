@@ -1,16 +1,27 @@
-# flutter_rick_and_morty_app
+# Rick and Morty Character App
+This is an app build in Flutter that loads a list of characters (from the serie Rick and Morty) and his info, and display it.
 
-A new Flutter project.
+Api that provide the information: https://rickandmortyapi.com/documentation.
 
-## Getting Started
+This app requires internet connection.
 
-This project is a starting point for a Flutter application.
+# Tech/Framework used
+Built With
 
-A few resources to get you started if this is your first Flutter project:
+• Flutter 📱
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+• Dart 🎯
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Contents
+• API Rest with Dio
+
+• State Management with Provider
+
+• MVVM
+
+• Clean Architecture 
+
+• Dark Theme
+
+• Material Design
+
