@@ -1,11 +1,13 @@
 import 'package:dio/dio.dart';
+import '../../../../product/constants/exception/end_list_exception.dart';
+import '../../../../product/constants/exception/no_network_exception.dart';
 
 import '../model/info_model.dart';
 
-abstract class GetEntitiesService {
+abstract class EntitiesService {
   static final Dio _dio = Dio();
 
-  Future<List<Map<String, dynamic>>> getAllEntities(String url) async {
+  Future<List<Map<String, dynamic>>> fetchEntities(String url) async {
     try {
       List<Map<String, dynamic>> allEntities = [];
       String? nextUrl = url;
@@ -23,16 +25,16 @@ abstract class GetEntitiesService {
         }
       }
       return allEntities;
-    } on DioError catch (exception){
+    } on DioError catch (exception) {
       if (exception.response != null) {
         if (exception.response!.statusCode == 404) {
-          throw Exception("You have reached the end of the character list.");
+          throw Exception(EndListException);
         } else {
           throw Exception(
               "${exception.response!.statusCode}: ${exception.response!.statusMessage}");
         }
       } else {
-        throw Exception("Couldn't fetch characters. Is the device online?");
+        throw Exception(NoNetworkException);
       }
     }
   }
